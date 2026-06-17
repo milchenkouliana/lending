@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RE:USE</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=M+PLUS+Rounded+1c:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #2E3057;
+      color: #dce6ff;
+    }
+
+    .page {
+      min-height: 100vh;
+      padding-bottom: 70px;
+    }
+
+    .header {
+      width: 80%;
+      height: 64px;
+      margin: 0 auto;
+      background: #101C2A;
+      border-radius: 0 0 18px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 34px;
+    }
+
+    .logo,
+    h1,
+    h2,
+    h3 {
+      font-family: "M PLUS Rounded 1c", sans-serif;
+      color: #9db7ff;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 24px;
+      background: #9db7ff;
+      color: #17213d;
+      font-family: "M PLUS Rounded 1c", sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 11px 32px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background: #b8caff;
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      background: #7f99e8;
+      transform: translateY(1px);
+    }
+
+    .hero {
+      width: 80%;
+      margin: 150px auto 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .hero-card {
+      background: #0c1d2a;
+      border-radius: 18px;
+      padding: 36px 34px;
+      max-width: 590px;
+    }
+
+    .hero-card h1 {
+      font-size: 34px;
+      font-weight: 900;
+      margin-bottom: 30px;
+    }
+
+    .hero-card p {
+      max-width: 500px;
+      font-size: 21px;
+      line-height: 1.3;
+      margin-bottom: 24px;
+    }
+
+    .mascot-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mascot {
+      width: 270px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .features {
+      width: 95%;
+      max-width: 1180px;
+      margin: 105px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature-card {
+      min-height: 185px;
+      background: #0c1d2a;
+      border-radius: 16px;
+      padding: 32px 34px;
+    }
+
+    .feature-card h3 {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 32px;
+    }
+
+    .feature-card p {
+      font-size: 20px;
+      line-height: 1.25;
+      color: #e6ecff;
+    }
+
+    .center {
+      display: flex;
+      justify-content: center;
+      margin: 50px 0;
+    }
+
+    .about {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 34px;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .about-card {
+      background: #0c1d2a;
+      border-radius: 16px;
+      padding: 28px 42px;
+    }
+
+    .about-list {
+      list-style: none;
+      display: grid;
+      gap: 26px;
+    }
+
+    .about-list li {
+      position: relative;
+      padding-left: 44px;
+      font-size: 20px;
+      line-height: 1.3;
+      color: #9db7ff;
+    }
+
+    .about-list li::before {
+      content: "★";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #e6ecff;
+      font-size: 18px;
+    }
+
+    .steps {
+      width: 95%;
+      max-width: 1180px;
+      margin: 70px auto 0;
+    }
+
+    .steps-grid {
+      min-height: 330px;
+      position: relative;
+    }
+
+    .step-card {
+      width: 270px;
+      min-height: 150px;
+      background: #0c1d2a;
+      border-radius: 14px;
+      padding: 22px 18px;
+      position: absolute;
+    }
+
+    .step-card h3 {
+      font-family: "Inter", sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 28px;
+      color: #9db7ff;
+    }
+
+    .step-card p {
+      font-size: 17px;
+      line-height: 1.35;
+      color: #e6ecff;
+    }
+
+    .step-1 {
+      left: 0;
+      top: 0;
+    }
+
+    .step-2 {
+      left: 290px;
+      top: 75px;
+    }
+
+    .step-3 {
+      left: 580px;
+      top: 150px;
+    }
+
+    .step-4 {
+      right: 0;
+      top: 225px;
+    }
+
+    .reviews {
+      width: 80%;
+      margin: 85px auto 0;
+    }
+
+    .review-card {
+      background: #101C2A;
+      border-radius: 16px;
+      padding: 28px 34px;
+      margin-bottom: 26px;
+    }
+
+    .review-card h3 {
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .review-card p {
+      font-size: 20px;
+      line-height: 1.45;
+      color: #e6ecff;
+    }
+
+    @media (max-width: 1000px) {
+      .header,
+      .hero,
+      .about,
+      .reviews {
+        width: 90%;
+      }
+
+      .hero {
+        margin-top: 90px;
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        width: 90%;
+        grid-template-columns: 1fr;
+        margin-top: 70px;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .about .mascot-wrap {
+        order: 2;
+      }
+
+      .steps-grid {
+        min-height: auto;
+        display: grid;
+        gap: 18px;
+      }
+
+      .step-card {
+        position: static;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .header {
+        padding: 0 18px;
+      }
+
+      .logo {
+        font-size: 22px;
+      }
+
+      .btn {
+        font-size: 14px;
+        padding: 10px 22px;
+      }
+
+      .hero-card {
+        padding: 28px 22px;
+      }
+
+      .hero-card h1 {
+        font-size: 30px;
+      }
+
+      .hero-card p,
+      .feature-card p,
+      .about-list li,
+      .review-card p {
+        font-size: 17px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .mascot {
+        width: 220px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <header class="header">
+      <div class="logo">RE:USE</div>
+      <button class="btn">Подробнее</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-card">
+          <h1>RE:USE</h1>
+          <p>Платформа, которая позволяет людям сдавать и брать в аренду вещи у людей рядом.</p>
+          <button class="btn">Перейти в приложение</button>
+        </div>
+
+        <div class="mascot-wrap">
+          <img class="mascot" src="bear.jpg" alt="Маскот RE:USE">
+        </div>
+      </section>
+
+      <section class="features">
+        <div class="feature-card">
+          <h3>Без переплат</h3>
+          <p>Нужна вещь на один раз? Оформи аренду за пару минут!</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Встроенный чат</h3>
+          <p>Обсуждайте детали аренды и задавайте вопросы в чате</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>Внутренний кошелёк</h3>
+          <p>Копите бонусы и получайте кешбэк</p>
+        </div>
+      </section>
+
+      <div class="center">
+        <button class="btn">Перейти в приложение</button>
+      </div>
+
+      <section class="about">
+        <h2 class="section-title">О НАС</h2>
+
+        <div class="about-content">
+          <div class="mascot-wrap">
+            <img class="mascot" src="bear2.jpg" alt="Маскот RE:USE">
+          </div>
+
+          <div class="about-card">
+            <ul class="about-list">
+              <li>Помогаем пользоваться вещами разумнее.</li>
+              <li>Оформление аренды за пару минут.</li>
+              <li>В приложении можно найти вещи рядом.</li>
+              <li>Не придётся покупать, достаточно арендовать.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="steps">
+        <h2 class="section-title">КАК ЭТО РАБОТАЕТ</h2>
+
+        <div class="steps-grid">
+          <div class="step-card step-1">
+            <h3>1. Найдите нужную вещь</h3>
+            <p>Выберите категорию, посмотрите фото, цену и условия аренды.</p>
+          </div>
+
+          <div class="step-card step-2">
+            <h3>2. Напишите владельцу</h3>
+            <p>Обсудите время, место передачи и детали прямо в чате.</p>
+          </div>
+
+          <div class="step-card step-3">
+            <h3>3. Оформите аренду</h3>
+            <p>Подтвердите заказ, внесите оплату и получите вещь в удобное время.</p>
+          </div>
+
+          <div class="step-card step-4">
+            <h3>4. Верните вещь обратно</h3>
+            <p>После аренды верните вещь владельцу и оставьте отзыв.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews">
+        <h2 class="section-title">ОТЗЫВЫ</h2>
+
+        <div class="review-card">
+          <h3>Анна</h3>
+          <p>Очень удобно, что можно взять вещь на пару дней и не покупать её. Я арендовала отпариватель перед поездкой. Всё прошло спокойно, вещь доставили быстро, договорились через чат.</p>
+        </div>
+
+        <div class="review-card">
+          <h3>Илья</h3>
+          <p>Брал шуруповёрт для ремонта на выходные. Раньше пришлось бы покупать новый, а он нужен был всего на один раз. В приложении быстро нашёл человека рядом и забрал в тот же день.</p>
+        </div>
+
+        <div class="review-card">
+          <h3>Марина</h3>
+          <p>Мне понравилось, что есть залог и рейтинг пользователей. Было спокойнее отдавать свою вещь незнакомому человеку. После аренды всё вернули вовремя и в хорошем состоянии.</p>
+        </div>
+      </section>
+    </main>
+
+  </div>
+</body>
+</html>
